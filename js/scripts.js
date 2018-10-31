@@ -52,6 +52,17 @@ Score.prototype.diceRoll = function(min, max) {
 
 // User Interface Logic
 var game = new Game;
+
+$(document).ready(function(){
+
+  $("form#submitName").submit(function(event){
+    event.preventDefault();
+    var playerInput = $("input#name").val();
+    game.addPlayer(playerInput);
+    console.log("hi");
+  });
+
+})
 // var player1 = new Player("Paige", 2)
 // game.addPlayer(player1)
 // newPlayer.score.gamePlay(newPlayer.score.diceRoll())
