@@ -20,6 +20,16 @@ Game.prototype.switchPlayer = function(){
   }
 }
 
+Game.prototype.checkCondition = function(lastDiceRoll){
+  console.log(lastDiceRoll);
+  if(lastDiceRoll === 1){
+   this.switchPlayer();
+ } else {
+   this.currentPlayer.score.scoreValue += lastDiceRoll;
+   console.log(this.currentPlayer.score.scoreValue);
+ }
+}
+
 //Business Logic for Players
 function Player (name, score){
   this.playerName = name;
@@ -38,25 +48,12 @@ Score.prototype.diceRoll = function(min, max) {
     return Math.floor(Math.random() * (max-min) + min);
 }
 
-Score.prototype.gamePlay = function(rollResult) {
-    console.log(rollResult);
-    if(rollResult === 1) {
-      // Game.switchPlayer();
-
-    } else {
-      this.scoreValue += rollResult;
-      console.log(this.scoreValue);
-    }
-
-}
 
 
-// Player.prototype.addScore = function(score) {
-//     this.dice();
-// }
 // User Interface Logic
-var game = new Game
+var game = new Game;
 // var player1 = new Player("Paige", 2)
 // game.addPlayer(player1)
-// player1.score.gamePlay(player1.score.diceRoll())
+// newPlayer.score.gamePlay(newPlayer.score.diceRoll())
 // player1.gamePlay(diceRoll());
+//game.currentPlayer.score.gamePlay(game.currentPlayer.score.diceRoll());
