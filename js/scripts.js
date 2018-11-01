@@ -27,6 +27,9 @@ Game.prototype.checkCondition = function(lastDiceRoll){
  } else {
    this.currentPlayer.score.scoreValue += lastDiceRoll;
    console.log(this.currentPlayer.score.scoreValue);
+   if (this.currentPlayer.score.scoreValue >= 100){
+     return console.log("Game Over");
+   }
  }
 }
 
@@ -57,8 +60,10 @@ $(document).ready(function(){
 
   $("form#submitName").submit(function(event){
     event.preventDefault();
-    var playerInput = $("input#name").val();
-    game.addPlayer(playerInput);
+    var playerInput1 = $("input#player1").val();
+    var playerInput2 = $("input#player2").val();
+    game.addPlayer(playerInput1);
+    game.addPlayer(playerInput2);
     console.log("hi");
   });
 
