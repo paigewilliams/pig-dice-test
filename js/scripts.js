@@ -72,32 +72,13 @@ $(document).ready(function(){
 
 
   });
-  // function switchPlayerName (){
-  //   if (game.currentPlayer.playerName === game.players[0].playerName){
-  //     $(".other-player-name").html(game.players[1].playerName);
-  //     $(".other-player-total").html(game.players[1].score.scoreValue)
-  //       if( diceRollVal === 1){
-  //         $(".current-player-name").html(game.players[1].playerName)
-  //         $(".other-player-switch").show();
-  //         $(".current-player-rolled").hide();
-  //       }
-  //
-  //   } else if(game.currentPlayer.playerName === game.players[1].playerName){
-  //     $(".other-player-name").html(game.players[0].playerName);
-  //     $(".other-player-total").html(game.players[0].score.scoreValue)
-  //     if( diceRollVal === 1){
-  //       $(".current-player-name").html(game.players[0].playerName)
-  //       $(".other-player-switch").show();
-  //       $(".current-player-rolled").hide();
-  //     }
-  //   }
-  // }
-
+  
   $("#roll").click(function(){
     var diceRollVal = game.currentPlayer.score.diceRoll()
     game.checkCondition(diceRollVal);
     $(".current-player").html(game.currentPlayer.playerName);
     $(".roll").html(diceRollVal);
+    $(".total").html(game.currentPlayer.score.scoreValue);
 
     if (game.currentPlayer.playerName === game.players[0].playerName){
       $(".other-player-name").html(game.players[1].playerName);
@@ -117,14 +98,23 @@ $(document).ready(function(){
         $(".current-player-rolled").hide();
       }
     }
-    $(".total").html(game.currentPlayer.score.scoreValue);
   });
 
 
   $("#hold").click(function(){
     game.switchPlayer();
     $(".current-player").html(game.currentPlayer.playerName);
+    if (game.currentPlayer.playerName === game.players[0].playerName){
+      $(".other-player-name").html(game.players[1].playerName);
+      $(".other-player-total").html(game.players[1].score.scoreValue)
+      $(".total").html(game.currentPlayer.score.scoreValue)
 
+    } else if(game.currentPlayer.playerName === game.players[1].playerName){
+      $(".other-player-name").html(game.players[0].playerName);
+      $(".other-player-total").html(game.players[0].score.scoreValue)
+      $(".total").html(game.currentPlayer.score.scoreValue)
+
+    }
   });
 
 
