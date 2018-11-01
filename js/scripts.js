@@ -62,9 +62,14 @@ $(document).ready(function(){
     console.log("hi");
   });
 
+  $("#roll").click(function(){
+    game.checkCondition(game.currentPlayer.score.diceRoll());
+    console.log("diceRolled");
+  });
+  $("#hold").click(function(){
+    game.switchPlayer();
+    console.log("hold");
+  });
+
+
 })
-// var player1 = new Player("Paige", 2)
-// game.addPlayer(player1)
-// newPlayer.score.gamePlay(newPlayer.score.diceRoll())
-// player1.gamePlay(diceRoll());
-//game.currentPlayer.score.gamePlay(game.currentPlayer.score.diceRoll());
