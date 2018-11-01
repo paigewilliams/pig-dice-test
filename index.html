@@ -24,13 +24,24 @@
         </div>
       </form>
       <div class="output">
-        <p><span class= "current-player"></span></p>
-        <p><span class= "roll"></span></p>
-        <p><span class= "total"></span></p>
-      </div>
-      <div class="buttons">
-        <button type="click" name="button" id="roll">Roll</button>
-        <button type="click" name="button" id="hold">Hold</button>
+        <div class="current-output">
+          <p>Current player: <span class= "current-player"></span></p>
+          <div class="current-player-rolled">
+            <p>You rolled a: <span class= "roll"></span></p>
+
+          </div>
+          <div class="other-player-switch">
+            <p><span class="current-player-name"></span> rolled a: 1</p>
+          </div>
+          <p>Your total is: <span class= "total"></span></p>
+          <button type="click" name="button" id="roll">Roll</button>
+          <button type="click" name="button" id="hold">Hold</button>
+        </div>
+
+        <div class="other-output">
+          <p>Other player: <span class="other-player-name"></span></p>
+          <p>Your last total is: <span class= "other-player-total"></span></p>
+        </div>
       </div>
     </div>
   </body>

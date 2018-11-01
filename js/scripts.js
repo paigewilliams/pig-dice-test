@@ -12,11 +12,11 @@ Game.prototype.addPlayer = function(name){
 
 Game.prototype.switchPlayer = function(){
   if (this.currentPlayer.playerName === this.players[0].playerName){
-    console.log("current = player 0");
-    this.currentPlayer = this.players[1];
+      this.currentPlayer = this.players[1];
+
   } else if(this.currentPlayer.playerName === this.players[1].playerName){
-    console.log("current = player 1");
     this.currentPlayer = this.players[0];
+
   }
 }
 
@@ -64,16 +64,67 @@ $(document).ready(function(){
     var playerInput2 = $("input#player2").val();
     game.addPlayer(playerInput1);
     game.addPlayer(playerInput2);
-    console.log("hi");
+
+    $(".current-player").html(game.currentPlayer.playerName);
+    $(".other-player-name").html(game.players[0].playerName)
+    $(".output").show();
+    $("#submitName").hide();
+
+
   });
+  // function switchPlayerName (){
+  //   if (game.currentPlayer.playerName === game.players[0].playerName){
+  //     $(".other-player-name").html(game.players[1].playerName);
+  //     $(".other-player-total").html(game.players[1].score.scoreValue)
+  //       if( diceRollVal === 1){
+  //         $(".current-player-name").html(game.players[1].playerName)
+  //         $(".other-player-switch").show();
+  //         $(".current-player-rolled").hide();
+  //       }
+  //
+  //   } else if(game.currentPlayer.playerName === game.players[1].playerName){
+  //     $(".other-player-name").html(game.players[0].playerName);
+  //     $(".other-player-total").html(game.players[0].score.scoreValue)
+  //     if( diceRollVal === 1){
+  //       $(".current-player-name").html(game.players[0].playerName)
+  //       $(".other-player-switch").show();
+  //       $(".current-player-rolled").hide();
+  //     }
+  //   }
+  // }
 
   $("#roll").click(function(){
-    game.checkCondition(game.currentPlayer.score.diceRoll());
-    console.log("diceRolled");
+    var diceRollVal = game.currentPlayer.score.diceRoll()
+    game.checkCondition(diceRollVal);
+    $(".current-player").html(game.currentPlayer.playerName);
+    $(".roll").html(diceRollVal);
+
+    if (game.currentPlayer.playerName === game.players[0].playerName){
+      $(".other-player-name").html(game.players[1].playerName);
+      $(".other-player-total").html(game.players[1].score.scoreValue)
+        if( diceRollVal === 1){
+          $(".current-player-name").html(game.players[1].playerName)
+          $(".other-player-switch").show();
+          $(".current-player-rolled").hide();
+        }
+
+    } else if(game.currentPlayer.playerName === game.players[1].playerName){
+      $(".other-player-name").html(game.players[0].playerName);
+      $(".other-player-total").html(game.players[0].score.scoreValue)
+      if( diceRollVal === 1){
+        $(".current-player-name").html(game.players[0].playerName)
+        $(".other-player-switch").show();
+        $(".current-player-rolled").hide();
+      }
+    }
+    $(".total").html(game.currentPlayer.score.scoreValue);
   });
+
+
   $("#hold").click(function(){
     game.switchPlayer();
-    console.log("hold");
+    $(".current-player").html(game.currentPlayer.playerName);
+
   });
 
 
