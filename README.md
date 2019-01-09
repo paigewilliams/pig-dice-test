@@ -42,9 +42,7 @@
 1. _Go to GitHub profile and project @
 [paigewilliams](https://github.com/paigewilliams/pig-dice.git) and  [TanviCodeLife](https://github.com/TanviCodeLife/pig-dice-game.git)_
 2. _Use #git clone <project url> command to pull it to a local repository in your Home directory._
-3. _Go to project folder beep-boop and open the index.html file in your browser._
-4. _Input any number and click submit_
-4. _Beep Boop Output will be displayed_
+
 
 ### Technologies used
 1. **Bootstrap and custom CSS**
