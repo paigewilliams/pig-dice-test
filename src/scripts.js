@@ -34,7 +34,7 @@ Game.prototype.checkCondition = function(lastDiceRoll){
 };
 
 //Business Logic for Players
-function Player (){
+function Player (name){
   this.playerName = name;
   this.score =  new Score(0);
 }
